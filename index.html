@@ -385,12 +385,12 @@
       function shareLocation(lat, lon, name) {
         const shareText = EV Charging Station: ${name}\nLocation: ${lat}, ${lon}\nhttps://www.google.com/maps?q=${lat},${lon};
 
-        if (navigator.share) {
+        if(navigator.share){
           navigator.share({
             title: "EV Charging Station",
             text: shareText,
           });
-        } else {
+        }else{
           navigator.clipboard.writeText(shareText).then(() => {
             showMessage("Location copied to clipboard!", "success");
           });
